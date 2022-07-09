@@ -4,12 +4,21 @@ export const usersSchemaGraphql = gql`
   type User {
     id: ID!
     firstName: String
-    secondName: String
+    lastName: String
     password: String
     email: String!
   }
 
+  type jwt {
+    jwt: String!
+  }
+
   type Query {
-    books: Int
+    getUserById(userId: String!): User
+  }
+
+  type Mutation {
+    registerUser(firstName: String!, lastName: String!, email: String!, password: String!): User
+    loginUser(email: String!, password: String!): jwt
   }
 `;

@@ -1,4 +1,7 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
+import { RegisterDto } from '../dto/register.dto';
+import { LoginDto } from '../dto/login.dto';
+import { UserSchema } from '../schemas/user.schema';
 
 export class UsersService extends RESTDataSource {
   baseURL: string;
@@ -8,17 +11,15 @@ export class UsersService extends RESTDataSource {
     this.baseURL = baseURL;
   }
 
-  async registerUser() {
-    return null;
+  async getUserById(userId: string): Promise<UserSchema> {
+    return this.get(`${userId}`);
   }
 
-  /* async getAllGenres() {
-    const response = await this.get('');
-    return response.items;
+  async registerUser(registerDto: RegisterDto): Promise<UserSchema> {
+    return this.post('register', registerDto);
   }
 
-  async getGenreById(genreId: string) {
-    const response = await this.get(`${genreId}`);
-    return response;
-  } */
+  async loginUser(loginDto: LoginDto): Promise<{ jwt: string }> {
+    return this.post('login', loginDto);
+  }
 }

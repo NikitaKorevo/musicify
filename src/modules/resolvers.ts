@@ -6,4 +6,7 @@ export const resolvers = {
     ...genresResolver.Query,
     ...usersResolver.Query,
   },
+  Mutation: {
+    ...usersResolver.Mutation,
+  },
 };
