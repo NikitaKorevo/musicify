@@ -1,19 +1,8 @@
 import { gql } from 'apollo-server';
-import { genresSchema } from './genres/genres.schema';
-import { usersSchema } from './users/users.schema';
+import { usersSchemaGraphql } from './users/schemas/users.schema.graphql';
+import { genresSchemaGraphql } from './genres/schemas/genres.schema.graphql';
 
 export const schemas = gql`
-  ${usersSchema}
-  ${genresSchema}
+  ${usersSchemaGraphql}
+  ${genresSchemaGraphql}
 `;
-
-/* export const typeDefs = gql`
-  type Book {
-    title: String
-    author: String
-  }
-
-  type Query {
-    books: [Book]
-  }
-`; */

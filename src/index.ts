@@ -1,15 +1,17 @@
-import { ApolloServer } from 'apollo-server';
 import dotenv from 'dotenv';
-import { DocumentNode } from 'graphql';
 import { env } from 'process';
+import { ApolloServer } from 'apollo-server';
+import { DocumentNode } from 'graphql';
 import { resolvers } from './modules/resolvers';
 import { schemas } from './modules/schemas';
-import { GenresAPI } from './modules/services/genresAPI';
+import { UsersService } from './modules/users/services/users.service';
+import { GenresService } from './modules/genres/services/genres.service';
 
 dotenv.config();
 
 const dataSources = () => ({
-  genresAPI: new GenresAPI(env.GENRES_BASE_URL || 'http://localhost:3001/v1/genres'),
+  usersService: new UsersService(env.USERS_BASE_URL || 'http://localhost:3004/v1/users'),
+  genresService: new GenresService(env.GENRES_BASE_URL || 'http://localhost:3001/v1/genres'),
 });
 
 const startApolloServer = async (schemas: DocumentNode, resolvers: any, dataSources: any) => {

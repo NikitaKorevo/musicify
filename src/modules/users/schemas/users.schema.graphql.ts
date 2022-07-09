@@ -1,6 +1,6 @@
 import { gql } from 'apollo-server';
 
-export const usersSchema = gql`
+export const usersSchemaGraphql = gql`
   type User {
     id: ID!
     firstName: String

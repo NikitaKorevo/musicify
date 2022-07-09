@@ -1,5 +1,5 @@
-import { genresResolver } from './genres/genres.resolver';
-import { usersResolver } from './users/users.resolver';
+import { genresResolver } from './genres/resolvers/genres.resolver';
+import { usersResolver } from './users/resolvers/users.resolver';
 
 export const resolvers = {
   Query: {
@@ -7,21 +7,3 @@ export const resolvers = {
     ...usersResolver.Query,
   },
 };
-
-/* export const books = [
-  {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
-  },
-];
-
-export const resolvers = {
-  Query: {
-    books: () => books,
-  },
-};
- */
