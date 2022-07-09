@@ -6,11 +6,28 @@ export const genresSchemaGraphql = gql`
     name: String
     description: String
     country: String
-    year: Int
+    year: String
   }
 
   type Query {
     getAllGenres: [Genre]
     getGenreById(genreId: ID!): Genre
+  }
+
+  type deleteResponse {
+    acknowledged: Boolean
+    deletedCount: Int
+  }
+
+  type Mutation {
+    createGenre(name: String!, description: String!, country: String!, year: Int!): Genre
+    updateGenreById(
+      genreId: String!
+      name: String!
+      description: String!
+      country: String!
+      year: Int!
+    ): Genre
+    deleteGenreById(genreId: String!): deleteResponse
   }
 `;

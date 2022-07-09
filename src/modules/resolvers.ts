@@ -3,10 +3,11 @@ import { usersResolver } from './users/resolvers/users.resolver';
 
 export const resolvers = {
   Query: {
-    ...genresResolver.Query,
     ...usersResolver.Query,
+    ...genresResolver.Query,
   },
   Mutation: {
     ...usersResolver.Mutation,
+    ...genresResolver.Mutation,
   },
 };

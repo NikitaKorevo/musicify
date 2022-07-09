@@ -21,6 +21,9 @@ const startApolloServer = async (schemas: DocumentNode, resolvers: any, dataSour
     dataSources,
     csrfPrevention: true,
     cache: 'bounded',
+    context: ({ req }) => ({
+      token: req.headers.authorization,
+    }),
   });
 
   const { url } = await server.listen({ port: env.PORT || 4000 });

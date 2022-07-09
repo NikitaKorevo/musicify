@@ -15,11 +15,11 @@ export class UsersService extends RESTDataSource {
     return this.get(`${userId}`);
   }
 
-  async registerUser(registerDto: RegisterDto): Promise<UserSchema> {
-    return this.post('register', registerDto);
-  }
-
   async loginUser(loginDto: LoginDto): Promise<{ jwt: string }> {
     return this.post('login', loginDto);
+  }
+
+  async registerUser(registerDto: RegisterDto): Promise<UserSchema> {
+    return this.post('register', registerDto);
   }
 }

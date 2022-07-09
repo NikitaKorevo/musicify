@@ -15,10 +15,10 @@ export const usersSchemaGraphql = gql`
 
   type Query {
     getUserById(userId: String!): User
+    loginUser(email: String!, password: String!): jwt
   }
 
   type Mutation {
     registerUser(firstName: String!, lastName: String!, email: String!, password: String!): User
-    loginUser(email: String!, password: String!): jwt
   }
 `;

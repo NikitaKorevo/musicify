@@ -8,6 +8,11 @@ export const usersResolver = {
       const user = await dataSources.usersService.getUserById(userId);
       return user;
     },
+
+    loginUser: async (_: any, { ...loginDto }: LoginDto, { dataSources }: any) => {
+      const jwt = await dataSources.usersService.loginUser(loginDto);
+      return jwt;
+    },
   },
 
   Mutation: {
@@ -19,11 +24,6 @@ export const usersResolver = {
         id: _id,
         ...properties,
       };
-    },
-
-    loginUser: async (_: any, { ...loginDto }: LoginDto, { dataSources }: any) => {
-      const jwt = await dataSources.usersService.loginUser(loginDto);
-      return jwt;
     },
   },
 };
