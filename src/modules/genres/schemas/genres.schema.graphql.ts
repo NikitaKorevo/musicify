@@ -20,13 +20,13 @@ export const genresSchemaGraphql = gql`
   }
 
   type Mutation {
-    createGenre(name: String!, description: String!, country: String!, year: Int!): Genre
+    createGenre(name: String!, description: String, country: String, year: Int): Genre
     updateGenreById(
       genreId: String!
-      name: String!
-      description: String!
-      country: String!
-      year: Int!
+      name: String
+      description: String
+      country: String
+      year: Int
     ): Genre
     deleteGenreById(genreId: String!): deleteResponse
   }

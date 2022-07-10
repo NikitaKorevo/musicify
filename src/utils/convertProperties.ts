@@ -1,5 +1,5 @@
 type TargetObjectType = {
-  [key: string]: string;
+  [key: string]: any;
 };
 
 const convertProperties = (exchanger: any, targetObject: TargetObjectType) => {
