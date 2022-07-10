@@ -14,4 +14,14 @@ export class TracksService extends RESTDataSource {
   willSendRequest(request: RequestOptions) {
     request.headers.set('Authorization', `${this.context.token}`);
   }
+
+  async getAllTracks() {
+    const response = await this.get('');
+    return response.items;
+  }
+
+  async getTrackById(trackId: string) {
+    const response = await this.get(`${trackId}`);
+    return response;
+  }
 }

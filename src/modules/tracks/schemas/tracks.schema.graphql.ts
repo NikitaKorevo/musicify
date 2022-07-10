@@ -11,4 +11,9 @@ export const tracksSchemaGraphql = gql`
     released: Int
     genres: [Genre]
   }
+
+  type Query {
+    getAllTracks: [Track]
+    getTrackById(trackId: String!): Track
+  }
 `;
